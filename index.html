@@ -14,15 +14,20 @@
    ★ 色・文字サイズを変えたいときは、ここだけ編集すればOK ★
    ========================================================= */
 :root {
-  --bg:            #faf6ef;  /* ページ全体の背景（淡いベージュ） */
-  --bg-soft:       #f3ece0;  /* セクションの背景（少し濃いベージュ） */
+  --bg:            #fbf8f1;  /* ページ全体の背景（アイボリー） */
+  --bg-soft:       #f4ede1;  /* セクションの背景（淡いベージュ） */
   --card:          #ffffff;  /* カードの背景（白） */
-  --accent:        #7c9a85;  /* アクセント（くすみグリーン） */
-  --accent-dark:   #5b7a65;  /* アクセント濃いめ（見出しなど） */
-  --accent-light:  #e6eee7;  /* アクセント薄め（囲みの背景など） */
-  --text:          #2f2f2f;  /* 本文の文字色（濃いグレー） */
-  --text-sub:      #666660;  /* 補足の文字色 */
-  --line:          #e5dccd;  /* 区切り線・枠線 */
+  --accent:        #7f9e89;  /* 信頼感の色（くすみグリーン） */
+  --accent-dark:   #5f8069;  /* くすみグリーン濃いめ（見出し・言葉のカード） */
+  --accent-light:  #e7efe9;  /* くすみグリーン薄め（囲みの背景など） */
+  --cta:           #d47a5f;  /* 行動してほしい場所の色（コーラル〜テラコッタ） */
+  --cta-dark:      #c66a4b;  /* コーラル濃いめ（ボタン・押してほしい文字） */
+  --cta-light:     #fbeae3;  /* コーラル薄め（囲みの背景） */
+  --gold:          #c9a45c;  /* 強調の色（やわらかいゴールド） */
+  --gold-light:    #f6ecd3;  /* ゴールド薄め（マーカー線） */
+  --text:          #3b3936;  /* 本文の文字色（濃いチャコール） */
+  --text-sub:      #6b6862;  /* 補足の文字色 */
+  --line:          #e8dfd0;  /* 区切り線・枠線 */
 
   --fs-base:  17px;          /* 本文の文字サイズ */
   --fs-h2:    22px;          /* 見出しの文字サイズ */
@@ -43,6 +48,7 @@ body {
   font-feature-settings: "palt" 0;
 }
 p { margin: 0 0 1.1em; }
+p, li { text-wrap: pretty; } /* 1〜2文字だけ次の行に落ちるのを防ぐ */
 p:last-child { margin-bottom: 0; }
 strong { font-weight: 700; }
 
@@ -151,7 +157,7 @@ h2::after {
   margin-bottom: 14px;
 }
 .key-message .big span {
-  background: linear-gradient(transparent 62%, var(--accent-light) 62%);
+  background: linear-gradient(transparent 60%, var(--gold-light) 60%);
 }
 .key-message p:not(.big) { font-size: 16px; text-align: left; }
 
@@ -243,7 +249,7 @@ h2::after {
 }
 .quote-list li {
   background: var(--card);
-  border-left: 4px solid var(--accent);
+  border-left: 4px solid var(--gold);
   border-radius: 0 12px 12px 0;
   padding: 10px 16px;
   line-height: 1.7;
@@ -329,7 +335,8 @@ h2::after {
   font-size: 90px;
   line-height: 1;
   position: absolute;
-  opacity: 0.18;
+  color: var(--gold);
+  opacity: 0.55;
 }
 .motto::before { content: "“"; top: 6px; left: 14px; }
 .motto::after  { content: "”"; bottom: -28px; right: 14px; }
@@ -357,8 +364,8 @@ h2::after {
   border-radius: 24px;
   padding: 34px 22px 30px;
   text-align: center;
-  box-shadow: 0 8px 28px rgba(91,122,101,0.16);
-  border: 2px solid var(--accent);
+  box-shadow: 0 8px 28px rgba(185,96,63,0.14);
+  border: 2px solid var(--cta);
 }
 .line-box .lead {
   font-size: 17px;
@@ -373,13 +380,14 @@ h2::after {
   font-size: 30px;
   font-weight: 800;
   letter-spacing: 0.1em;
-  color: var(--accent-dark);
-  background: var(--accent-light);
-  border: 2px dashed var(--accent);
+  color: var(--cta-dark);
+  background: var(--cta-light);
+  border: 2px dashed var(--cta);
   border-radius: 16px;
   line-height: 1.4;
 }
 .line-box .tail { font-size: 17px; font-weight: 600; }
+.nb { display: inline-block; } /* この単位の途中では改行しない */
 .steps {
   margin: 26px 0 0;
   padding: 18px 0 0;
@@ -614,12 +622,12 @@ footer {
     <div class="motto">
       <span class="line">不安は行動でしか<br>解決できない。</span>
       <span class="line">行動の先にしか<br>成功はない。</span>
-      <span class="caption">これは、私自身がいつも心に留めている言葉です。</span>
+      <span class="caption"><span class="nb">これは、私自身が</span><span class="nb">いつも心に留めている言葉です。</span></span>
     </div>
 
     <p>個別無料相談は、何かを決めるためだけの場所ではありません。</p>
     <p><strong>まずは知ること。</strong></p>
-    <p><strong>そして、自分に合うかを判断すること。</strong></p>
+    <p><strong>そして、<span class="nb">自分に合うかを</span><span class="nb">判断すること。</span></strong></p>
     <p>そのための時間として使ってください☺️</p>
     <p>気になっている今が、次の一歩を考えるタイミングかもしれません。</p>
   </div>
@@ -629,9 +637,9 @@ footer {
 <section class="final-cta">
   <div class="wrap fade">
     <div class="line-box">
-      <p class="lead">個別無料相談をご希望の方は、<br>公式LINEのトークルームに</p>
+      <p class="lead"><span class="nb">個別無料相談を</span><span class="nb">ご希望の方は、</span><br><span class="nb">公式LINEの</span><span class="nb">トークルームに</span></p>
       <div class="keyword">個別無料相談</div>
-      <p class="tail">とメッセージを送ってください☺️</p>
+      <p class="tail"><span class="nb">とメッセージを</span><span class="nb">送ってください☺️</span></p>
       <ol class="steps">
         <li><b>1.</b>このページを閉じて、公式LINEのトークルームに戻る</li>
         <li><b>2.</b>「個別無料相談」と入力して送信</li>
